@@ -56,6 +56,13 @@ const getLocalPerson = (tok, cb) => {
     });
 };
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, jwt");
+  next();
+});
+
+
   // Get token using your credentials
   app.get('/api/token', function(req, res, next) {
 
